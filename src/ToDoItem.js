@@ -1,10 +1,9 @@
 import React from 'react';
 
-const ToDoItem = () => {
+const ToDoItem = (props) => {
     return(
         <div>
-            
-            
+            <h3>{props.data.item}</h3>    
         </div>
     );
 }

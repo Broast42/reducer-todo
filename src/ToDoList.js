@@ -1,10 +1,13 @@
 import React from 'react';
+import ToDoItem from './ToDoItem';
 
-const ToDoList = () => {
+const ToDoList = (props) => {
+    
     return(
         <div>
-            
-            
+            {props.data.map((x,i) => (
+                <ToDoItem key={i} data={x} />
+            ))}    
         </div>
     );
 }
