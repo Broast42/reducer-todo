@@ -8,20 +8,30 @@ function App() {
 
   const [state, dispatch] = useReducer(todoReducer, initialState);
   const [input, setInput] = useState("");
-  console.log(input)
+  //console.log(state);
   
   const handleChanges = (e) =>{
     setInput(e.target.value);
   };
 
-  const addTodo = e => {
+  const addTodo = () => {
     dispatch({type: "ADD_TODO", payload: input});
+    setInput("");
+  };
+
+  const toggleTodo = (id) => {
+    dispatch({type: "TOGGLE_TODO", payload: id});
+    
+  }
+
+  const clearCompleted = () => {
+    dispatch({type: "CLEAR_TODO"});
   };
 
   return (
     <div className="App">
-      <Header handle={handleChanges} submit={addTodo}/>
-      <ToDoList data={state}/>
+      <Header handle={handleChanges} submit={addTodo} clear={clearCompleted} input={input}/>
+      <ToDoList data={state} toggle={toggleTodo} />
     </div>
   );
 }

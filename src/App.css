@@ -90,3 +90,7 @@ h6{
   background: linear-gradient(to right, #009999 0%, #99ffcc 100%);
 
 }
+
+.complete{
+  text-decoration: line-through;
+}
