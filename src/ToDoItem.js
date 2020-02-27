@@ -16,9 +16,10 @@ const ToDoItem = (props) => {
                         Enter Complete By Date
                     </button> 
                 </div>:
-                <div className="dateMargin"> 
+                <div className={Date.parse(props.data.completeBy) < Date.now() ? "late dateMargin": "dateMargin"}> 
                     <h4>Complete by: </h4>
                     <h4><Moment format="MMMM DD YYYY">{props.data.completeBy}</Moment></h4>
+                    {Date.parse(props.data.completeBy) < Date.now() ? <h5>This Item is Late</h5>: "" }
                 </div>
             } 
 
